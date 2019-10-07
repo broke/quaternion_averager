@@ -6,6 +6,7 @@ authors = ["Gunnar Nitsche <herrnitsche@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "A library to average quaternions"
 repository = "https://github.com/broke/quaternion_averager"
+documentation = "https://docs.rs/quaternion_averager/"
 
 [dependencies]
 nalgebra = "0.18"
