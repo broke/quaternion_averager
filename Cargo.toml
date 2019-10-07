@@ -4,7 +4,8 @@ version = "0.1.0"
 edition = "2018"
 authors = ["Gunnar Nitsche <herrnitsche@gmail.com>"]
 license = "MIT OR Apache-2.0"
-description = "a library to average quaternions"
+description = "A library to average quaternions"
+repository = "https://github.com/broke/quaternion_averager"
 
 [dependencies]
 nalgebra = "0.18"
