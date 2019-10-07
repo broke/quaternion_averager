@@ -1,4 +1,4 @@
-![](https://docs.rs/quaternion_averager/badge.svg)
+[![docs.rs](https://docs.rs/quaternion_averager/badge.svg)](https://docs.rs/quaternion_averager/)
 
 # Description
 A small library for quaternion averaging written in rust.
