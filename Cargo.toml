@@ -1,0 +1,13 @@
+[package]
+name = "quaternion_averager"
+version = "0.1.0"
+edition = "2018"
+authors = ["Gunnar Nitsche <herrnitsche@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "a library to average quaternions"
+
+[dependencies]
+nalgebra = "0.18"
+
+[dev-dependencies]
+approx = "0.3"
