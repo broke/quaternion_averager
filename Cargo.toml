@@ -1,6 +1,6 @@
 [package]
 name = "quaternion_averager"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2018"
 authors = ["Gunnar Nitsche <herrnitsche@gmail.com>"]
 license = "MIT OR Apache-2.0"
@@ -9,7 +9,7 @@ repository = "https://github.com/broke/quaternion_averager"
 documentation = "https://docs.rs/quaternion_averager/"
 
 [dependencies]
-nalgebra = "0.18"
+nalgebra = "0.19"
 
 [dev-dependencies]
 approx = "0.3"
