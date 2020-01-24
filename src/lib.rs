@@ -1,9 +1,5 @@
 use nalgebra::{
-    geometry::Quaternion,
-    geometry::UnitQuaternion,
-    Matrix4,
-    RealField,
-    linalg::SymmetricEigen,
+    geometry::Quaternion, geometry::UnitQuaternion, linalg::SymmetricEigen, Matrix4, RealField,
 };
 
 /// A quaternion averager.
@@ -13,14 +9,20 @@ pub struct QuaternionAverager<T: RealField + Copy + PartialEq> {
     weight_sum: T,
 }
 
+impl<T: RealField + Copy + PartialEq> Default for QuaternionAverager<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     /// Creates and returns a new quaternion averager
-    /// 
+    ///
     /// # Example
-    /// 
+    ///
     /// ```
     /// use quaternion_averager::QuaternionAverager;
-    /// 
+    ///
     /// let mut qa = QuaternionAverager::<f64>::new();
     /// ```
     pub fn new() -> QuaternionAverager<T> {
@@ -31,7 +33,7 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     }
 
     /// Add a new unit quaternion with weight 1 to the averager
-    /// 
+    ///
     /// # Example
     /// ```
     /// use quaternion_averager::QuaternionAverager;
@@ -39,7 +41,7 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     ///     geometry::Quaternion,
     ///     geometry::UnitQuaternion,
     /// };
-    /// 
+    ///
     /// let mut qa = QuaternionAverager::new();
     /// let q1 = Quaternion::new(0.9961947f32, 0.0871557f32, 0f32, 0f32);
     /// let q1 = UnitQuaternion::from_quaternion(q1);
@@ -53,7 +55,7 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     }
 
     /// Add a new unit quaternion with custom weight to the averager
-    /// 
+    ///
     /// # Example
     /// ```
     /// use quaternion_averager::QuaternionAverager;
@@ -61,7 +63,7 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     ///     geometry::Quaternion,
     ///     geometry::UnitQuaternion,
     /// };
-    /// 
+    ///
     /// let mut qa = QuaternionAverager::new();
     /// let q1 = Quaternion::new(0.9961947f32, 0.0871557f32, 0f32, 0f32);
     /// let q1 = UnitQuaternion::from_quaternion(q1);
@@ -75,7 +77,7 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     }
 
     /// Calculates and returns the quaternion average
-    /// 
+    ///
     /// # Example
     /// ```
     /// use quaternion_averager::QuaternionAverager;
@@ -83,7 +85,7 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
     ///     geometry::Quaternion,
     ///     geometry::UnitQuaternion,
     /// };
-    /// 
+    ///
     /// let mut qa = QuaternionAverager::new();
     /// let q1 = Quaternion::new(0.9961947f32, 0.0871557f32, 0f32, 0f32);
     /// let q1 = UnitQuaternion::from_quaternion(q1);
@@ -100,9 +102,8 @@ impl<T: RealField + Copy + PartialEq> QuaternionAverager<T> {
         let i = decomp.eigenvalues.imax();
         let q = decomp.eigenvectors.column(i);
         let q = Quaternion::new(q[3], q[0], q[1], q[2]);
-        let q = UnitQuaternion::from_quaternion(q);
 
-        q
+        UnitQuaternion::from_quaternion(q)
     }
 }
 
