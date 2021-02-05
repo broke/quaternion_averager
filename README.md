@@ -1,5 +1,8 @@
 [![docs.rs](https://docs.rs/quaternion_averager/badge.svg)](https://docs.rs/quaternion_averager/)
 
+This crate has been **DEPRECATED** in favor of the `mean_of` function for
+`UnitQuaternion` in (nalgebra)[https://nalgebra.org/]
+
 # Description
 A small library for quaternion averaging written in rust.
 
